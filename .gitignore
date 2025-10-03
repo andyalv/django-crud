@@ -1,2 +1,16 @@
 # Environment variables
-django_project/.env
+.env
+
+# Auto-generated directories
+__pycache__/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Tailwindcss build
+dist/
+build/
+*/css/output.css
