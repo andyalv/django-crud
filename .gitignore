@@ -13,4 +13,4 @@ yarn-error.log*
 # Tailwindcss build
 dist/
 build/
-*/css/output.css
+**/static/css/output.css
