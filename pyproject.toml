@@ -1,0 +1,27 @@
+[project]
+name = "crud"
+version = "0.1.0"
+description = "First approach to Django"
+authors = [
+    {name = "andyalv", email = "andy.red02@gmail.com"}
+]
+license = {text = "GPL v3"}
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+dependencies = [
+    "django (>=5.2.7,<6.0.0)",
+    "djangorestframework (>=3.16.1,<4.0.0)",
+    "django-environ (>=0.12.0,<0.13.0)",
+    "django-money (>=3.5.4,<4.0.0)",
+    "babel (>=2.17.0,<3.0.0)"
+]
+
+[project.optional-dependencies]
+postgres = ["psycopg (>=3.2.10,<4.0.0)"]
+
+[tool.poetry]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

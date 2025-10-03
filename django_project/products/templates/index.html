@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Productos{% endblock %}
+
+{% block content %}
+<div class="px-5">
+    <h1 class="text-3xl pb-3 text-bold uppercase tracking-wide">Products CRUD</h1>
+    
+    <div>
+        <table class="table-auto w-full border-collapse rounded-lg shadow-md overflow-hidden">
+
+            <!-- Table Header -->
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="px-4 py-2 text-left text-gray-600 font-semibold">Name</th>
+                    <th class="px-4 py-2 text-left text-gray-600 font-semibold">Stock</th>
+                    <th class="px-4 py-2 text-left text-gray-600 font-semibold">Price (USD)</th>
+                    <th class="px-4 py-2 text-left text-gray-600 font-semibold">Description</th>
+                    <th class="px-4 py-2 text-center text-gray-600 font-semibold">Action</th>
+                </tr>
+            </thead>
+
+            <tbody class="divide-y divide-gray-200">
+
+                {% for product in products %}
+
+                <!-- Test Row -->
+                <tr class="hover:bg-gray-50">
+                    <td class="px-4 py-2">Wireless Mouse</td>
+                    <td class="px-4 py-2">120</td>
+                    <td class="px-4 py-2">$25.99</td>
+                    <td class="px-4 py-2">Ergonomic mouse with 2.4GHz wireless connectivity.</td>
+                    <td class="px-4 py-2 text-center space-x-2">
+                        <button class="px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Edit</button>
+                        <button class="px-3 py-1 bg-green-500 text-white rounded-lg hover:bg-green-600">Preview</button>
+                        <button class="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600">Delete</button>
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+{% endblock %}
