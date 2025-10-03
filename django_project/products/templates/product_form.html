@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if form.instance.pk %}Editar Producto{% else %}Crear Producto{% endif %}{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md mt-8">
+    <h1 class="text-2xl font-bold mb-6">{% if form.instance.pk %}Editar Producto{% else %}Crear Producto{% endif %}</h1>
+
+    <form method="POST" class="space-y-4">
+        {% csrf_token %}
+
+        <!-- Name -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-1" for="id_name">Nombre</label>
+            {{ form.name }}
+            {% if form.name.errors %}
+                <p class="text-red-500 text-sm">{{ form.name.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Short Description -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-1" for="id_short_description">Descripción corta</label>
+            {{ form.short_description }}
+            {% if form.short_description.errors %}
+                <p class="text-red-500 text-sm">{{ form.short_description.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Description -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-1" for="id_description">Descripción detallada</label>
+            {{ form.description }}
+            {% if form.description.errors %}
+                <p class="text-red-500 text-sm">{{ form.description.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Brand -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-1" for="id_brand">Marca</label>
+            {{ form.brand }}
+            {% if form.brand.errors %}
+                <p class="text-red-500 text-sm">{{ form.brand.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Category -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-1" for="id_category">Categoría</label>
+            {{ form.category }}
+            {% if form.category.errors %}
+                <p class="text-red-500 text-sm">{{ form.category.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Weight -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-1" for="id_weight">Peso (g)</label>
+            {{ form.weight }}
+            {% if form.weight.errors %}
+                <p class="text-red-500 text-sm">{{ form.weight.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Featured -->
+        <div class="flex items-center gap-2">
+            {{ form.is_featured }}
+            <label class="text-gray-700 font-semibold" for="id_is_featured">Destacado</label>
+        </div>
+
+        <!-- Price -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-1" for="id_price">Precio (USD)</label>
+            {{ form.price }}
+            {% if form.price.errors %}
+                <p class="text-red-500 text-sm">{{ form.price.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Cost -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-1" for="id_cost">Costo (USD)</label>
+            {{ form.cost }}
+            {% if form.cost.errors %}
+                <p class="text-red-500 text-sm">{{ form.cost.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Stock -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-1" for="id_stock">Inventario</label>
+            {{ form.stock }}
+            {% if form.stock.errors %}
+                <p class="text-red-500 text-sm">{{ form.stock.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Botones -->
+        <div class="flex gap-2 mt-6">
+            <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded">
+                Guardar
+            </button>
+            <a href="{% url 'home' %}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded">
+                Cancelar
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+

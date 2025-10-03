@@ -12,28 +12,54 @@
             <!-- Table Header -->
             <thead class="bg-gray-100">
                 <tr>
+                    <th class="px-4 py-2 text-left text-gray-600 font-semibold">ID</th>
                     <th class="px-4 py-2 text-left text-gray-600 font-semibold">Name</th>
                     <th class="px-4 py-2 text-left text-gray-600 font-semibold">Stock</th>
                     <th class="px-4 py-2 text-left text-gray-600 font-semibold">Price (USD)</th>
                     <th class="px-4 py-2 text-left text-gray-600 font-semibold">Description</th>
-                    <th class="px-4 py-2 text-center text-gray-600 font-semibold">Action</th>
+                    <th class="px-4 py-2 text-left text-gray-600 font-semibold"></th>
                 </tr>
             </thead>
 
+            <div class="flex flex-grow justify-end mb-3">
+                <a href="{% url 'product_create' %}" class="bg-green-500 hover:bg-green-600 text-white font-semibold flex flex-row gap-1 px-2 py-2 rounded-md cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+                        <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
+                    </svg>
+                    <span>New product</span>
+                </a>
+            </div>
+
+            <!-- Table -->
             <tbody class="divide-y divide-gray-200">
 
                 {% for product in products %}
 
                 <!-- Test Row -->
                 <tr class="hover:bg-gray-50">
-                    <td class="px-4 py-2">Wireless Mouse</td>
-                    <td class="px-4 py-2">120</td>
-                    <td class="px-4 py-2">$25.99</td>
-                    <td class="px-4 py-2">Ergonomic mouse with 2.4GHz wireless connectivity.</td>
-                    <td class="px-4 py-2 text-center space-x-2">
-                        <button class="px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Edit</button>
-                        <button class="px-3 py-1 bg-green-500 text-white rounded-lg hover:bg-green-600">Preview</button>
-                        <button class="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600">Delete</button>
+                    <td class="px-4 py-2">{{product.id}}</td>
+                    <td class="px-4 py-2">{{product.name}}</td>
+                    <td class="px-4 py-2">{{product.stock}}</td>
+                    <td class="px-4 py-2">{{product.price}}</td>
+                    <td class="px-4 py-2">{{product.short_description}}</td>
+                    <td class="px-4 py-2">
+                        <div class="flex flex-row gap-2 items-center justify-end">
+                            <button class="px-1 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                                <svg height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+                                    <path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/>
+                                </svg>
+                            </button>
+                            <button class="px-1 py-1 bg-green-500 text-white rounded-lg hover:bg-green-600">
+                                <svg height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+                                    <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-480H200v480Zm280-80q-82 0-146.5-44.5T240-440q29-71 93.5-115.5T480-600q82 0 146.5 44.5T720-440q-29 71-93.5 115.5T480-280Zm0-60q56 0 102-26.5t72-73.5q-26-47-72-73.5T480-540q-56 0-102 26.5T306-440q26 47 72 73.5T480-340Zm0-100Zm0 60q25 0 42.5-17.5T540-440q0-25-17.5-42.5T480-500q-25 0-42.5 17.5T420-440q0 25 17.5 42.5T480-380Z"/>
+                                </svg>
+                            </button>
+                            <button class="px-1 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600">
+                                <svg height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+                                    <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
+                                </svg>
+                            </button>
+                        </div>
                     </td>
                 </tr>
 
